@@ -109,71 +109,91 @@ O objetivo foi verificar se o NotebookLM havia processado corretamente os docume
 
 # 🧠 4. Engenharia de Prompts
 
-Uma das propostas do projeto foi analisar como a construção do prompt influencia a resposta produzida pela IA.
+Uma das propostas deste projeto foi observar como a construção de um prompt influencia a qualidade, a organização e a profundidade das respostas produzidas pela IA.
 
-Para isso, foram utilizados prompts com diferentes níveis de detalhamento.
+Para isso, foram realizados três experimentos sobre o mesmo assunto, aumentando progressivamente o nível de detalhamento das instruções.
+
+A estratégia utilizada foi:
+
+**Prompt simples → Prompt contextualizado → Prompt estruturado**
 
 ---
 
 ## Experimento 1 — Prompt simples
 
-### Prompt
+### Prompt utilizado
 
 > Explique juros compostos.
 
 ### Resposta obtida
 
-O NotebookLM definiu juros compostos como um mecanismo no qual os juros incidem não somente sobre o capital inicial, mas também sobre os juros acumulados anteriormente.
+Mesmo com uma instrução curta, o NotebookLM apresentou uma definição adequada de juros compostos, explicando que eles incidem não apenas sobre o valor inicial, mas também sobre os juros acumulados nos períodos anteriores.
 
-A resposta utilizou a expressão **"juros sobre juros"** e apresentou um exemplo envolvendo um capital de R$ 100,00 rendendo 2% ao ano.
+A ferramenta utilizou a expressão **"juros sobre juros"** e apresentou um exemplo no qual R$ 100,00 são aplicados a uma taxa de 2% ao ano.
 
-Também relacionou o assunto à educação financeira e apresentou dados provenientes das fontes do Banco Central.
+Também relacionou o conceito à educação financeira e apresentou informações provenientes das fontes do Banco Central.
 
 ### Resultado observado
 
-Mesmo sendo extremamente curto, o prompt conseguiu gerar uma resposta relevante.
+O primeiro experimento mostrou que um prompt simples pode produzir uma resposta relevante quando o NotebookLM possui fontes adequadas.
 
-Entretanto, o usuário não determinou:
+Entretanto, como nenhuma estrutura foi determinada, várias decisões ficaram sob responsabilidade da própria IA.
 
-* o nível de conhecimento esperado;
-* a estrutura da resposta;
-* quais conceitos deveriam ser abordados;
-* o nível de profundidade;
-* o formato dos exemplos;
-* quais fontes deveriam receber maior atenção.
+Não foram especificados:
 
-Isso deixou diversas decisões sob responsabilidade da própria IA.
+* público-alvo;
+* nível de profundidade;
+* estrutura da resposta;
+* conceitos obrigatórios;
+* formato do exemplo;
+* aplicação prática;
+* forma de avaliação do aprendizado.
+
+Isso tornou a resposta útil, porém menos controlável.
 
 ---
 
 ## Experimento 2 — Prompt contextualizado
 
-### Prompt
+### Prompt utilizado
 
 > Com base exclusivamente nas fontes deste caderno, explique o conceito de juros compostos para uma pessoa que está começando a estudar educação financeira. Diferencie juros simples de juros compostos e apresente um exemplo prático. Utilize as fontes do caderno para fundamentar a resposta.
 
-### Objetivo do experimento
-
-O segundo prompt adiciona quatro elementos que não estavam presentes no primeiro:
-
-1. delimitação das fontes;
-2. definição do público-alvo;
-3. solicitação de comparação;
-4. solicitação de exemplo prático.
-
 ### Resposta obtida
 
-> **INSERIR AQUI A RESPOSTA/RESUMO REAL OBTIDO NO NOTEBOOKLM.**
+O NotebookLM passou a organizar a explicação de maneira mais didática.
+
+Primeiro definiu juros compostos como **"juros sobre juros"**. Em seguida, criou uma seção específica comparando juros simples e compostos.
+
+A ferramenta explicou que:
+
+* nos juros simples, o rendimento é calculado sobre o valor inicial;
+* nos juros compostos, o cálculo considera o capital inicial e os juros acumulados anteriormente.
+
+Também desenvolveu um exemplo progressivo utilizando R$ 100,00 aplicados a 2% ao ano.
+
+No primeiro ano, o montante passa para R$ 102,00. A resposta explicou que, após cinco anos, o resultado dos juros compostos seria superior aos R$ 110,00 que seriam obtidos pela lógica dos juros simples.
+
+A resposta também relacionou os juros compostos ao endividamento e ao cartão de crédito.
 
 ### Resultado observado
 
-> **REGISTRAR AQUI AS DIFERENÇAS ENCONTRADAS EM RELAÇÃO AO EXPERIMENTO 1.**
+Em comparação ao primeiro experimento, a resposta ficou mais organizada e direcionada ao objetivo de aprendizagem.
+
+A inclusão de instruções específicas trouxe melhorias importantes:
+
+* **"para uma pessoa que está começando"** adequou a linguagem ao público-alvo;
+* **"diferencie juros simples de juros compostos"** obrigou a IA a realizar uma comparação;
+* **"apresente um exemplo prático"** fez com que a explicação fosse acompanhada de uma aplicação;
+* **"com base exclusivamente nas fontes"** delimitou o universo de informações permitido.
+
+O experimento mostrou que fornecer contexto ao prompt aumenta o controle sobre a resposta.
 
 ---
 
 ## Experimento 3 — Prompt estruturado
 
-### Prompt
+### Prompt utilizado
 
 > Atue como um professor de educação financeira. Utilizando exclusivamente as fontes deste caderno, ensine juros compostos para um aluno iniciante.
 >
@@ -193,314 +213,186 @@ O segundo prompt adiciona quatro elementos que não estavam presentes no primeir
 >
 > Indique as fontes utilizadas para sustentar as explicações e não utilize informações externas às fontes deste caderno.
 
-### Objetivo do experimento
-
-Neste terceiro teste, o prompt define:
-
-* papel da IA;
-* público-alvo;
-* fontes permitidas;
-* sequência da explicação;
-* conceitos obrigatórios;
-* utilização de exemplos;
-* aplicação prática;
-* mecanismo de avaliação da aprendizagem.
-
 ### Resposta obtida
 
-> **INSERIR AQUI A RESPOSTA/RESUMO REAL OBTIDO NO NOTEBOOKLM.**
+O terceiro experimento apresentou a resposta mais estruturada dos três testes.
+
+O NotebookLM assumiu explicitamente uma abordagem pedagógica e dividiu a explicação nas nove etapas solicitadas.
+
+Foram abordados:
+
+1. conceito de juros;
+2. conceito de juros compostos;
+3. diferença entre juros simples e compostos;
+4. lógica matemática da capitalização;
+5. exemplo numérico;
+6. influência da taxa;
+7. influência do tempo;
+8. utilização em investimentos;
+9. consequências em dívidas.
+
+A ferramenta novamente utilizou o exemplo de R$ 100,00 a uma taxa de 2% ao ano e relacionou taxas elevadas a situações como cartão de crédito rotativo e cheque especial.
+
+Ao final, conforme solicitado, foram apresentadas três perguntas para verificar a compreensão do conteúdo.
+
+A resposta informou como fontes utilizadas:
+
+* *Série Cidadania Financeira n. 5*;
+* *Cidadania Financeira*;
+* *Portal eduCAPES*.
 
 ### Resultado observado
 
-> **REGISTRAR AQUI AS DIFERENÇAS ENCONTRADAS EM RELAÇÃO AOS EXPERIMENTOS ANTERIORES.**
+O terceiro experimento apresentou maior controle sobre o formato da resposta.
+
+A instrução **"Atue como um professor de educação financeira"** estabeleceu um papel para a IA, enquanto **"para um aluno iniciante"** definiu o nível da explicação.
+
+A estrutura numerada reduziu a liberdade da IA para decidir quais assuntos abordar e em qual ordem apresentá-los.
+
+Outro ganho importante foi a inclusão de perguntas de verificação. Dessa forma, a IA deixou de atuar apenas como ferramenta para produzir respostas e passou também a apoiar uma estratégia de **aprendizagem ativa**.
+
+---
+
+## Comparação dos experimentos
+
+| Característica            |  Experimento 1  | Experimento 2 | Experimento 3 |
+| ------------------------- | :-------------: | :-----------: | :-----------: |
+| Define público-alvo       |        ❌        |       ✅       |       ✅       |
+| Restringe às fontes       |        ❌        |       ✅       |       ✅       |
+| Solicita comparação       |        ❌        |       ✅       |       ✅       |
+| Exige exemplo             |        ❌        |       ✅       |       ✅       |
+| Define papel da IA        |        ❌        |       ❌       |       ✅       |
+| Define estrutura          |        ❌        |    Parcial    |       ✅       |
+| Aborda investimentos      | Espontaneamente |  Parcialmente |       ✅       |
+| Aborda dívidas            | Espontaneamente |       ✅       |       ✅       |
+| Avalia aprendizado        |        ❌        |       ❌       |       ✅       |
+| Controle sobre a resposta |      Baixo      |     Médio     |      Alto     |
+
+### Evolução observada
+
+```text
+PROMPT 1
+"Explique juros compostos."
+        ↓
+Resposta relevante, porém com grande liberdade para a IA
+
+PROMPT 2
+Contexto + público + comparação + exemplo + fontes
+        ↓
+Resposta mais direcionada e didática
+
+PROMPT 3
+Papel + contexto + público + fontes + estrutura + avaliação
+        ↓
+Resposta organizada como uma experiência de aprendizagem
+```
+
+O experimento mostrou que um bom prompt não precisa apenas perguntar **"o que quero saber?"**, mas também pode determinar:
+
+* **quem** deve responder;
+* **para quem** a resposta será produzida;
+* **quais fontes** podem ser utilizadas;
+* **o que** precisa ser abordado;
+* **como** a resposta deve ser estruturada;
+* **como verificar** se houve aprendizagem.
 
 ---
 
 # 🔎 5. Cicatrizes e Troubleshooting
 
-Uma parte importante do experimento foi perceber que utilizar uma IA baseada em fontes não elimina a necessidade de verificar as informações apresentadas.
+Além das respostas obtidas, alguns comportamentos do NotebookLM foram importantes para compreender as limitações e os cuidados necessários no uso da IA.
 
-Durante o primeiro experimento, por exemplo, o NotebookLM apresentou uma informação estatística sobre o domínio de juros simples e compostos pela população.
+## Cicatriz 1 — Uma referência não elimina a necessidade de validação
 
-Isso demonstrou a necessidade de consultar a referência indicada pela própria ferramenta para verificar:
+Nos primeiros experimentos, o NotebookLM apresentou a afirmação de que apenas **18% da população demonstrava domínio completo** do conteúdo relacionado aos juros simples e compostos.
 
-1. qual era exatamente o indicador utilizado;
-2. qual população havia sido pesquisada;
-3. se o percentual correspondia especificamente aos juros compostos ou a uma combinação de questões;
-4. se a interpretação apresentada pela IA correspondia ao texto original.
+Isso chamou atenção durante a análise das respostas.
 
-Essa experiência reforçou um dos principais aprendizados do projeto:
+A experiência mostrou que uma informação não deve ser considerada automaticamente correta apenas porque uma IA apresentou uma referência.
 
-> **Uma resposta acompanhada de referência ainda precisa ser interpretada e validada.**
+É necessário consultar o trecho original e verificar:
 
-Outro aprendizado foi perceber que prompts genéricos podem produzir boas respostas, mas oferecem pouco controle sobre o conteúdo apresentado.
+* qual pergunta foi realizada na pesquisa;
+* o que exatamente o percentual representa;
+* qual população foi analisada;
+* se a interpretação da IA corresponde ao conteúdo original.
 
-A inclusão de contexto, público-alvo, estrutura esperada e restrições torna a interação com a IA mais previsível e adequada ao objetivo de aprendizagem.
-
----
-
-# 📘 6. Miniguia de Estudo
-
-## 6.1 O que são juros?
-
-Juros representam uma remuneração ou um custo associado à utilização do dinheiro durante determinado período.
-
-Em um investimento, podem representar a remuneração recebida pelo capital aplicado.
-
-Em uma dívida, podem representar o custo associado ao dinheiro utilizado.
+**Aprendizado:** referências ajudam na verificação, mas não substituem a análise crítica.
 
 ---
 
-## 6.2 Juros simples
+## Cicatriz 2 — A IA respeitou a limitação das fontes mesmo quando isso reduziu a resposta
 
-No regime de juros simples, os juros são calculados utilizando o capital inicial como referência.
+No terceiro experimento foi solicitada explicitamente uma:
 
-Uma representação matemática é:
+> "explicação da fórmula matemática"
+
+Entretanto, o NotebookLM respondeu:
+
+> "Embora as fontes mencionem a existência de fórmulas em e-books e calculadoras, elas explicam a lógica através da acumulação."
+
+Em vez de simplesmente inventar ou complementar a resposta com conhecimento externo, a ferramenta reconheceu uma limitação no material disponível e explicou somente a lógica encontrada nas fontes.
+
+Esse comportamento revelou algo importante sobre sistemas baseados em recuperação de fontes:
+
+> **Um prompt mais detalhado não consegue compensar completamente uma lacuna existente no material fornecido à IA.**
+
+Se determinado conhecimento não está adequadamente representado nas fontes, pode ser necessário melhorar a **curadoria**, e não apenas melhorar o prompt.
+
+---
+
+## Cicatriz 3 — Nem todas as fontes são necessariamente utilizadas
+
+O caderno possuía quatro fontes selecionadas, mas no terceiro experimento o NotebookLM informou utilizar:
+
+* Série Cidadania Financeira n. 5;
+* Cidadania Financeira;
+* Portal eduCAPES.
+
+Isso demonstra que adicionar uma fonte ao caderno não significa que ela será necessariamente relevante para todas as perguntas.
+
+A IA recupera os conteúdos que considera relacionados à consulta realizada.
+
+**Aprendizado:** quantidade de fontes não é tão importante quanto relevância e qualidade.
+
+---
+
+## Cicatriz 4 — Prompt detalhado não significa automaticamente resposta perfeita
+
+O terceiro prompt foi significativamente mais elaborado que os anteriores.
+
+Mesmo assim, a solicitação de uma fórmula matemática não pôde ser atendida da maneira esperada.
+
+Isso demonstrou que existem pelo menos três elementos envolvidos na qualidade da resposta:
 
 ```text
-J = C × i × n
+QUALIDADE DA RESPOSTA
+        ↓
+Boas fontes
+        +
+Bom prompt
+        +
+Validação crítica
 ```
 
-Onde:
-
-* `J` = juros;
-* `C` = capital inicial;
-* `i` = taxa de juros;
-* `n` = quantidade de períodos.
+Melhorar somente um desses elementos não garante um resultado ideal.
 
 ---
 
-## 6.3 Juros compostos
+# 🎯 Conclusão dos Experimentos
 
-Nos juros compostos, os juros de cada período são incorporados ao saldo acumulado.
+Os três testes demonstraram uma evolução clara na utilização da IA.
 
-Consequentemente, o saldo resultante passa a ser utilizado como base para o cálculo do período seguinte.
+No primeiro experimento, a IA foi utilizada basicamente como um mecanismo de **pergunta e resposta**.
 
-Por esse motivo, o mecanismo é frequentemente chamado de:
+No segundo, passou a funcionar como uma ferramenta de **explicação orientada**.
 
-> **juros sobre juros**
+No terceiro, a estrutura do prompt transformou a interação em uma pequena **experiência de aprendizagem**, contendo explicação, comparação, aplicações e perguntas de verificação.
 
-A fórmula do montante é:
+A principal conclusão dessa etapa foi que **engenharia de prompts não consiste apenas em escrever comandos maiores**.
 
-```text
-M = C × (1 + i)ⁿ
-```
+O objetivo é fornecer contexto suficiente para orientar a IA sem deixar de avaliar criticamente suas respostas.
 
-Onde:
+Além disso, o experimento mostrou que a qualidade final depende da combinação entre:
 
-* `M` = montante;
-* `C` = capital inicial;
-* `i` = taxa de juros;
-* `n` = quantidade de períodos.
-
----
-
-## 6.4 Exemplo
-
-Considere hipoteticamente:
-
-```text
-Capital inicial = R$ 10.000,00
-Taxa = 10% ao ano
-Período = 10 anos
-```
-
-Aplicando a fórmula:
-
-```text
-M = 10.000 × (1 + 0,10)¹⁰
-```
-
-Resultado aproximado:
-
-```text
-M = R$ 25.937,42
-```
-
-O exemplo demonstra a importância da capitalização ao longo do tempo.
-
-> O cálculo possui finalidade exclusivamente educacional e desconsidera impostos, inflação, taxas e outras variáveis existentes em investimentos reais.
-
----
-
-## 6.5 A importância do tempo
-
-O tempo exerce grande influência sobre os juros compostos.
-
-Cada novo período permite que os juros acumulados anteriormente façam parte da base de cálculo dos juros seguintes.
-
-Por isso, períodos maiores aumentam o efeito da capitalização composta.
-
----
-
-## 6.6 A importância da taxa
-
-A taxa determina o percentual de crescimento do capital em cada período.
-
-Em horizontes longos, diferenças nas taxas podem produzir diferenças relevantes no montante acumulado.
-
-É importante observar também se a unidade da taxa corresponde à unidade utilizada no período.
-
-Por exemplo, uma taxa anual deve ser analisada em conjunto com períodos expressos adequadamente em anos ou convertida de forma apropriada.
-
----
-
-## 6.7 Investimentos e dívidas
-
-Os juros compostos não devem ser entendidos apenas como um mecanismo relacionado a investimentos.
-
-O mesmo princípio de capitalização pode estar presente em diferentes operações financeiras.
-
-Para quem investe, a capitalização pode contribuir para o crescimento do patrimônio ao longo do tempo.
-
-Em operações de crédito e endividamento, juros e outros encargos podem aumentar significativamente o valor devido.
-
-Por isso, compreender taxas, prazos e condições é uma habilidade importante para a educação financeira.
-
----
-
-# 📖 7. Glossário
-
-| Conceito            | Definição                                                                           |
-| ------------------- | ----------------------------------------------------------------------------------- |
-| **Aporte**          | Valor acrescentado a um investimento.                                               |
-| **Capital**         | Valor inicial considerado em uma operação financeira.                               |
-| **Capitalização**   | Processo de incorporação dos juros ao capital.                                      |
-| **Juros**           | Remuneração ou custo associado ao dinheiro durante determinado período.             |
-| **Juros compostos** | Regime no qual os juros acumulados passam a integrar a base dos cálculos seguintes. |
-| **Juros simples**   | Regime no qual os juros são calculados sobre o capital inicial.                     |
-| **Montante**        | Capital acrescido dos juros acumulados.                                             |
-| **Período**         | Intervalo de tempo considerado na operação.                                         |
-| **Principal**       | Outra denominação utilizada para o capital inicial.                                 |
-| **Rentabilidade**   | Retorno obtido em determinado investimento durante um período.                      |
-| **Taxa de juros**   | Percentual aplicado durante determinado período.                                    |
-| **Valor futuro**    | Valor resultante após determinado período de capitalização.                         |
-
----
-
-# ♻️ 8. Prompts Reutilizáveis
-
-Os experimentos permitiram construir alguns prompts que podem ser reutilizados para estudar outros assuntos.
-
-### Prompt para aprender um novo conceito
-
-```text
-Atue como professor de [ÁREA].
-
-Utilizando exclusivamente as fontes deste caderno, explique [TEMA]
-para uma pessoa que está começando a estudar o assunto.
-
-Apresente:
-1. definição;
-2. conceitos fundamentais;
-3. exemplo prático;
-4. aplicações;
-5. erros comuns.
-
-Indique as fontes utilizadas.
-```
-
-### Prompt para revisão
-
-```text
-Utilizando exclusivamente as fontes deste caderno, crie uma revisão
-sobre [TEMA].
-
-Liste os 10 conceitos mais importantes e explique cada um utilizando
-linguagem objetiva.
-
-Ao final, faça 5 perguntas para testar meu conhecimento.
-```
-
-### Prompt para comparação
-
-```text
-Com base exclusivamente nas fontes deste caderno, compare
-[CONCEITO A] e [CONCEITO B].
-
-Apresente:
-- definição;
-- semelhanças;
-- diferenças;
-- aplicações;
-- exemplos.
-
-Fundamente a comparação utilizando as fontes.
-```
-
-### Prompt para identificar lacunas
-
-```text
-Analise as fontes deste caderno e identifique quais conhecimentos
-importantes relacionados a [TEMA] não estão suficientemente explicados.
-
-Não utilize conhecimento externo para preencher as lacunas.
-
-Informe quais assuntos exigiriam fontes adicionais.
-```
-
-### Prompt para validação
-
-```text
-Analise a seguinte afirmação:
-
-"[AFIRMAÇÃO]"
-
-Utilizando exclusivamente as fontes deste caderno, classifique-a como:
-
-- correta;
-- parcialmente correta;
-- incorreta;
-- não verificável com as fontes disponíveis.
-
-Explique a classificação e indique as referências utilizadas.
-```
-
----
-
-# 💡 9. Principais Aprendizados
-
-O desenvolvimento deste projeto mostrou que utilizar inteligência artificial para estudar vai além de simplesmente fazer perguntas e receber respostas.
-
-Alguns dos principais aprendizados foram:
-
-* A qualidade das fontes influencia diretamente a qualidade do estudo;
-* Prompts mais detalhados permitem maior controle sobre a resposta;
-* Definir o público-alvo melhora a adequação da linguagem;
-* Estabelecer uma estrutura ajuda a produzir respostas mais organizadas;
-* Restringir a resposta às fontes facilita a verificação das informações;
-* Citações devem ser verificadas e não apenas aceitas;
-* A IA pode ser utilizada para criar perguntas e exercícios, não somente respostas;
-* Identificar lacunas no conhecimento é tão importante quanto produzir resumos.
-
----
-
-# 🚀 10. Conclusão
-
-O NotebookLM demonstrou ser uma ferramenta útil para transformar um conjunto de fontes em um ambiente interativo de aprendizagem.
-
-No estudo sobre juros compostos, foi possível utilizar a IA para relacionar conceitos, produzir explicações, comparar informações e explorar diferentes estratégias de formulação de prompts.
-
-A experiência também demonstrou que o resultado depende não somente da capacidade da inteligência artificial, mas principalmente da **qualidade das fontes, das perguntas formuladas e da análise crítica realizada pelo usuário**.
-
-Assim, a principal conclusão deste projeto é que a IA apresenta maior valor educacional quando utilizada não como substituta do processo de aprendizagem, mas como uma ferramenta para **questionar, organizar, comparar, revisar e validar conhecimento**.
-
----
-
-## 🛠️ Tecnologias e recursos utilizados
-
-* NotebookLM
-* Inteligência Artificial Generativa
-* GitHub
-* Markdown
-* Banco Central do Brasil
-* CVM / Portal do Investidor
-* eduCAPES
-
----
-
-## 👤 Autor
-
-**Jaqueline Araújo**
-
-Projeto desenvolvido para o desafio de aprendizagem ativa com NotebookLM da **DIO**.
+**curadoria de fontes + elaboração de prompts + pensamento crítico.**
